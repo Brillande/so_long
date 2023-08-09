@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:21:06 by emedina-          #+#    #+#             */
-/*   Updated: 2023/07/27 19:51:08 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:01:02 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putunsignedint_counter(unsigned int n, size_t *counter);
 void	ft_putptr_counter(void *ptr, size_t *counter);
 void	ft_putstr_counter(char *str, size_t *counter);
 void	ft_putnbr_counter(int n, size_t *counter);
-int	ft_strlen(const char *s);
+
 size_t	ft_len(unsigned long long n, char *base);
 char	*ft_aux(unsigned long long n, char *base);
 void	ft_puthex_counter(unsigned int n, size_t *counter, char *base);

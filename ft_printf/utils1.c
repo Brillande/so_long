@@ -6,13 +6,13 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:51:17 by emedina-          #+#    #+#             */
-/*   Updated: 2023/07/27 22:53:57 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:49:17 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@
 		i++;
 	}
 	return (i);
-} */
+}
 
 size_t	ft_len(unsigned long long n, char *base)
 {
