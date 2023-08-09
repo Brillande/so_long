@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:47:02 by emedina-          #+#    #+#             */
-/*   Updated: 2023/07/28 16:46:18 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:49:42 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,49 +52,89 @@
 	}
 	return (i);
 } */
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+/* bool have_4_walls ()
 {
-	unsigned const char	*str;
-	unsigned char		*dest;
-	size_t				i;
+	
+} */
 
-	str = src;
-	dest = dst;
+int how_length_is_the_map(char *full_path)
+{
+	int file;
+	char *buff[1];
+	int i;
+	
 	i = 0;
-	if (dst == 0 && src == 0)
-		return (0);
-	while (i < n)
+	file = open(full_path, O_RDONLY);
+	if (file == -1)
 	{
-		dest[i] = str[i];
-		i++;
+		perror("ERROR en how_length_has_the_map \n No se pudo abrir el archivo\n");
+		return (1);
 	}
-	return (dest);
+	else
+	{
+		ft_printf("%s\n", "se abrio el archivo en how_length_has_the_map");
+		while(read(file, buff, 1))
+			i++;
+		close(file);
+		ft_printf("longitud del fichero: %i\n",i);
+			if(i < 1)
+				return(close(file), perror("error, mapa vacio"),0);
+			return (i);
+	}
 }
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	size_t	len1;
-	size_t	len2;
-	char	*str;
 
-	if (!s1 || !s2)
-		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	str = malloc(len1 + len2 + 1);
-	if (!str)
-		return (NULL);
-	ft_memcpy(str, s1, len1);
-	ft_memcpy(str + len1, s2, len2 + 1);
-	return (str);
-}
-int	ft_strlen(const char *str)
+char  *read_map(char *full_path, int i)
 {
-	int len;
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	return (len);
+	char *buff;
+	int file;
+	
+	buff = malloc(sizeof(char *) * (i + 1));
+	if(buff == NULL)
+		return(NULL);
+	file = open(full_path,O_RDONLY);
+	if (file == -1)
+		perror("error en read_map: no se pudo abrir el archivo");
+	else
+	{
+		ft_printf("%s\n", "Se abrio el archivo en read_map");
+		read(file, buff, i);
+		buff[i] = '\0';
+		close(file);
+		printf("el mapa que has leido tiene la siguiente forma: \n%s", buff);
+		return (buff);
+	}
 }
+
+int has_forbidden_char(char *map_content)
+{
+	int i;
+
+	i = 0;
+	if(map_content)
+	{
+		while(map_content[i] != '\0')
+		{
+			if (map_content[i] != '1' && map_content[i] != '0' && map_content[i] != 'C' && map_content[i] != 'E' && map_content[i] != 'P' && map_content[i] != '\n')
+			{
+				perror("error, hay algun caracter prohibido");
+				return(0);
+			}
+			i++;
+		}
+		ft_printf("%s\n","no hay ningun caracter prohibido");
+		return(1);
+	}
+}
+
+
+/* bool is_playable(char **map)
+{
+	int wall = '1';
+	int player = 'P';
+	int coin = 'C';
+	int way = '0';
+	
+} */
 
 char	*check_name(char *map_name)
 {
@@ -136,7 +176,10 @@ int	main(int argc, char **argv)
 		char *map_name_with_extension;
 		char *maps_directory;
 		char *full_path;
-		int file;
+		char *map_content;
+		char **map_array;
+		int map_length;
+		
 		map_name_with_extension = check_extension(argv[1]);
 
 		if (map_name_with_extension != NULL)
@@ -148,17 +191,24 @@ int	main(int argc, char **argv)
 				perror("Error al asignar memoria\n");
 				return (1);
 			}
-			file = open(full_path, O_RDONLY);
-			if (file == -1)
-			{
-				perror("ERROR \n No se pudo abrir el archivo\n");
-				return (1);
-			}
 			else
 			{
-				ft_printf("%s", "se abrio el archivo");
+				map_length = how_length_is_the_map(full_path);
+				if(map_length == 0)
+				{
+					free(full_path);
+					return(-1);
+				}
+				map_content = read_map(full_path,map_length);
+				if(!has_forbidden_char(map_content))
+				{
+					free(full_path);
+					free(map_content);
+					return(-1);
+				}
+				map_array = ft_split(map_content,'\n');
 				
-			}
+			} 
 			free(full_path);
 		}
 	}

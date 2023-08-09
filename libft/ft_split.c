@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/13 15:04:40 by emedina-          #+#    #+#             */
+/*   Updated: 2023/05/20 16:18:12 by emedina-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
 static void	*free_split(char **array, int j)
 {
 	int	i;
@@ -93,3 +107,22 @@ char	**ft_split(char const *s, char c)
 	array[num_words] = NULL;
 	return (array);
 }
+
+/* int	main(int ac, char **av)
+{
+	if (ac == 3)
+	{
+			char **esplit = ft_split(NULL, av[2][0]);
+	int i = 0;
+	while (esplit && esplit[i])
+	{
+		printf("%s\n", esplit[i]);
+		free(esplit[i]);
+		i++;
+	}
+	free(esplit);
+
+	return (0);
+	}
+
+} */
