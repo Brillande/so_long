@@ -1,3 +1,4 @@
+#include "so_long.h"
 char *join_the_fullpath(char *map_name)
 {
 	char	*map_name_with_extension;
@@ -14,7 +15,7 @@ char *join_the_fullpath(char *map_name)
 		if (full_path == NULL)
 		{
 			perror("Error al asignar memoria\n");
-			return (1);
+			exit(1);
 		}
 	}
 	return(full_path);

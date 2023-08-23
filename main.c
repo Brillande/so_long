@@ -6,14 +6,13 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:47:02 by emedina-          #+#    #+#             */
-/*   Updated: 2023/08/22 21:10:47 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:24:59 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
 #include "so_long.h"
 
-// ahora te toca hacer la una funcion que lea el archivo
+// haz una estructura que te hace falta para poder usar la funcion map_length en tu funsion so_long
 
 /* void	read_map(int fd, char *map)
 {
@@ -81,56 +80,6 @@ static int	count_words(const char *str, char c)
 	return (num_words);
 }
 
-int	how_length_is_the_map(char *full_path)
-{
-	int		file;
-	char	*buff[1];
-	int		i;
-
-	i = 0;
-	file = open(full_path, O_RDONLY);
-	if (file == -1)
-	{
-		perror("ERROR en how_length_has_the_map \n \
-		No se pudo abrir el archivo\n");
-		return (1);
-	}
-	else
-	{
-		ft_printf("%s\n", "se abrio el archivo en how_length_has_the_map");
-		while (read(file, buff, 1))
-			i++;
-		close(file);
-		ft_printf("longitud del fichero: %i\n", i);
-		if (i < 1)
-			return (close(file), perror("error, mapa vacio"), 0);
-		return (i);
-	}
-}
-
-char	*read_map(char *full_path, int i)
-{
-	char	*buff;
-	int		file;
-
-	buff = malloc(sizeof(char *) * (i + 1));
-	if (buff == NULL)
-		return (NULL);
-	file = open(full_path, O_RDONLY);
-	if (file == -1)
-		perror("error en read_map: no se pudo abrir el archivo");
-	else
-	{
-		ft_printf("%s\n", "Se abrio el archivo en read_map");
-		read(file, buff, i);
-		buff[i] = '\0';
-		close(file);
-		printf("el mapa que has leido tiene la siguiente forma: \n%s", buff);
-		return (buff);
-	}
-	return (NULL);
-}
-
 /* bool is_playable(char **map)
 {
 	int	wall;
@@ -147,62 +96,41 @@ char	*read_map(char *full_path, int i)
 	
 } */
 /* void so_long() */
-
-int	main(int argc, char **argv)
+int so_long(char *map)
 {
-	char	*map_name_with_extension;
-	char	*maps_directory;
-	char	*full_path;
-	char	*map_content;
 	char	**map_array;
-	int	map_length;
 	int	rows_of_array;
 	int	cols_of_array;
-	if (argc == 2)
+	if (map)
 	{
-		map_name_with_extension = check_extension(argv[1]);
-
-		if (map_name_with_extension != NULL)
+		read_the_map(join_the_fullpath(map));
+		if (!hasnt_forbidden_char(map))
 		{
-			maps_directory = "maps/";
-			full_path = (char *)ft_strjoin(maps_directory,
-											map_name_with_extension);
-			if (full_path == NULL)
-			{
-				perror("Error al asignar memoria\n");
-				return (1);
-			}
-			else
-			{
-				map_length = how_length_is_the_map(full_path);
-				if (map_length == 0)
-				{
-					free(full_path);
-					return (-1);
-				}
-				map_content = read_map(full_path, map_length);
-				if (!hasnt_forbidden_char(map_content))
-				{
-					free(full_path);
-					free(map_content);
-					return (-1);
-				}
-				map_array = ft_split(map_content, '\n');
-				rows_of_array = count_words(map_content, '\n');
-				cols_of_array = (map_length / rows_of_array) - 1;
-				ft_printf("lineas del array: %d\n", rows_of_array);
-				ft_printf("columnas del array: %d \n", cols_of_array);
-				if (isnt_borded_of_walls(map_array, rows_of_array,
-						cols_of_array))
-				{
-					free(full_path);
-					free(map_content);
-					return (-1);
-				}
-			}
-			free(full_path);
-			free(map_content);
+		/* free(full_path);
+		free(map_content); */
+		return (-1);
+		}
+		map_array = ft_split(map, '\n');
+		rows_of_array = count_words(map, '\n');
+		cols_of_array = (map_length / rows_of_array) - 1;
+		ft_printf("lineas del array: %d\n", rows_of_array);
+		ft_printf("columnas del array: %d \n", cols_of_array);
+		if (isnt_borded_of_walls(map_array, rows_of_array,
+		cols_of_array))
+		{
+			/* free(full_path);
+			free(map_content); */
+			return (-1);
 		}
 	}
+	/* free(full_path);
+	free(map_content); */
 	return (0);
+	}
+	
+
+	
+int	main(int argc, char **argv)
+{
+	so_long(argv[1]);
 }
