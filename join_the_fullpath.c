@@ -5,18 +5,19 @@ t_lib1 *join_the_fullpath(t_lib1 *map_data, char *map_name)
 	char	*map_name_with_extension;
 	char	*maps_directory;
 	t_lib1 map_update;
+
 	map_name_with_extension = check_extension(map_name);
 	if (map_name_with_extension != NULL)
 	{
-		
 		maps_directory = "maps/";
 		map_update.fullpath = ft_strjoin(maps_directory,
 		map_name_with_extension);
 		if (map_update.fullpath == NULL)
 		{
-			perror("Error al asignar memoria\n");
+			perror("Error\n al asignar memoria\n");
 			exit (EXIT_FAILURE);
 		}
+		read_the_map(map_update);
 	}
 }
 
