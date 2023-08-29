@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:47:02 by emedina-          #+#    #+#             */
-/*   Updated: 2023/08/26 20:03:35 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:11:23 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,7 @@
 t_lib1 *so_long(t_lib1 *map_data, char *map)
 {
 	join_the_fullpath(map_data, map);
-	read_the_map(map_data);
-	test_to_knows_if_is_playable(map_data);
+	
 }
 
 int	main(int argc, char **argv)
@@ -86,7 +85,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		t_lib1 *map_data;
-		ft_bzero(&map_data, sizeof(map_data));
+		ft_calloc(map_data, sizeof(map_data));
 		so_long(map_data, argv[1]);
 	}
 }
