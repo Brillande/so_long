@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/30 13:23:09 by emedina-          #+#    #+#             */
+/*   Updated: 2023/08/30 14:04:06 by emedina-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include "./libft/libft.h"
@@ -33,5 +45,7 @@ char		*read_map(char *full_path, int i);
 int			how_length_is_the_map(char *full_path);
 t_lib1		*test_to_knows_if_is_playable(t_lib1 map_data);
 static int	count_words(const char *str, char c);
-int so_many_P_E_C_has(char **map_array, int lines, int colums);
+int			so_many_p_e_c_has(char **map_array, int lines, int colums);
+t_lib1		*test_to_knows_if_is_playable2(t_lib1 map_update2);
+int			count_p_e_c(char **map, int rows, int cols, char target);
 #endif
