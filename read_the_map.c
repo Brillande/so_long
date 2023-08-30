@@ -1,17 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_the_map.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/30 13:23:01 by emedina-          #+#    #+#             */
+/*   Updated: 2023/08/30 15:16:11 by emedina-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-t_lib1 *read_the_map(t_lib1 map_update)
+t_lib1	*read_the_map(t_lib1 map_update)
 {
-	t_lib1 map_update1;
-	
-    map_update1.map_length = how_length_is_the_map(map_update.fullpath);
-	
+	t_lib1	map_update1;
+
+	map_update1.map_length = how_length_is_the_map(map_update.fullpath);
 	if (map_update.map_length == 0)
 	{
-	free(map_update.fullpath);
-	exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
-	map_update1.map_content = read_map(map_update.fullpath, map_update1.map_length);
+	map_update1.map_content = read_map(map_update.fullpath,
+			map_update1.map_length);
 	test_to_knows_if_is_playable(map_update1);
 }
 

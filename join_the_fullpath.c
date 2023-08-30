@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   join_the_fullpath.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/30 13:22:49 by emedina-          #+#    #+#             */
+/*   Updated: 2023/08/30 13:22:50 by emedina-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-t_lib1 *join_the_fullpath(t_lib1 *map_data, char *map_name)
+t_lib1	*join_the_fullpath(t_lib1 *map_data, char *map_name)
 {
 	char	*map_name_with_extension;
 	char	*maps_directory;
-	t_lib1 map_update;
+	t_lib1	map_update;
 
 	map_name_with_extension = check_extension(map_name);
 	if (map_name_with_extension != NULL)
@@ -15,7 +27,7 @@ t_lib1 *join_the_fullpath(t_lib1 *map_data, char *map_name)
 		if (map_update.fullpath == NULL)
 		{
 			perror("Error\n al asignar memoria\n");
-			exit (EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 		read_the_map(map_update);
 	}
@@ -23,9 +35,9 @@ t_lib1 *join_the_fullpath(t_lib1 *map_data, char *map_name)
 
 char	*check_name(char *map_name)
 {
-	int leng;
-	int i;
-	
+	int	leng;
+	int	i;
+
 	leng = 0;
 	i = 0;
 	leng = ft_strlen(map_name);

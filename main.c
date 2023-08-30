@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:47:02 by emedina-          #+#    #+#             */
-/*   Updated: 2023/08/29 14:11:23 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:33:33 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 	int		num_words;
 	int		i;
 	int		num_words;
+	int		i;
+	int		wall;
+	int		player;
+	int		coin;
+	int		way;
+	int		leng;
 	int		i;
 
 	leng = ft_strlen(map);
@@ -61,31 +67,24 @@
 } */
 /* bool is_playable(char **map)
 {
-	int	wall;
-	int	player;
-	int	coin;
-	int	way;
-	int	leng;
-	int	i;
-
 	wall = '1';
 	player = 'P';
 	coin = 'C';
 	way = '0';
 	
 } */
-t_lib1 *so_long(t_lib1 *map_data, char *map)
+t_lib1	*so_long(t_lib1 *map_data, char *map)
 {
 	join_the_fullpath(map_data, map);
-	
 }
 
 int	main(int argc, char **argv)
 {
+	t_lib1	*map_data;
+
 	if (argc == 2)
 	{
-		t_lib1 *map_data;
-		ft_calloc(map_data, sizeof(map_data));
+		ft_calloc(sizeof(*map_data), sizeof(*map_data));
 		so_long(map_data, argv[1]);
 	}
 }
