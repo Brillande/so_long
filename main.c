@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:47:02 by emedina-          #+#    #+#             */
-/*   Updated: 2023/08/30 15:33:33 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:43:58 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,14 @@
 	way = '0';
 	
 } */
-t_lib1	*so_long(t_lib1 *map_data, char *map)
-{
-	join_the_fullpath(map_data, map);
-}
 
 int	main(int argc, char **argv)
 {
-	t_lib1	*map_data;
+	t_lib1	map_data;
 
 	if (argc == 2)
 	{
-		ft_calloc(sizeof(*map_data), sizeof(*map_data));
-		so_long(map_data, argv[1]);
+		ft_bzero(&map_data, sizeof(map_data));
+		join_the_fullpath(&map_data, argv[1]);
 	}
 }

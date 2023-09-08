@@ -6,29 +6,27 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:29:35 by emedina-          #+#    #+#             */
-/*   Updated: 2023/08/30 15:14:39 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:29:33 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/ft_printf.h"
 #include "so_long.h"
-
-t_lib1	*test_to_knows_if_is_playable(t_lib1 map_update1)
+//tienes que conseguir que sume el numero correcto de p e c en la funcion de pec
+t_lib1	*test_to_knows_if_is_playable(t_lib1 *map_data)
 {
-	t_lib1	map_update2;
-
-	if (!hasnt_forbidden_char(map_update1.map_content))
+	if (!hasnt_forbidden_char(map_data->map_content))
 	{
 		exit(EXIT_FAILURE);
 	}
-	map_update2.map_array = ft_split(map_update1.map_content, '\n');
-	map_update2.cpy_of_map_array = map_update2.map_array;
-	map_update2.how_many_lines = count_words(map_update1.map_content, '\n');
-	map_update2.how_many_colums = (map_update1.map_length
-			/ map_update2.how_many_lines) - 1;
-	ft_printf("\nlineas del array: %d\n", map_update2.how_many_lines);
-	ft_printf("columnas del array: %d \n", map_update2.how_many_colums);
-	test_to_knows_if_is_playable2(map_update2);
+	map_data->map_array = ft_split(map_data->map_content, '\n');
+	map_data->cpy_of_map_array = map_data->map_array;
+	map_data->how_many_lines = count_words(map_data->map_content, '\n');
+	map_data->how_many_colums = (map_data->map_length
+			/ map_data->how_many_lines) - 1;
+	ft_printf("\nlineas del array: %d\n", map_data->how_many_lines);
+	ft_printf("columnas del array: %d \n", map_data->how_many_colums);
+	test_to_knows_if_is_playable2(map_data);
 }
 
 t_lib1	*isnt_borded_of_walls(char **map_array, int lines, int colms)
@@ -56,7 +54,7 @@ t_lib1	*isnt_borded_of_walls(char **map_array, int lines, int colms)
 		}
 		x++;
 	}
-	exit(EXIT_SUCCESS);
+	return (1);
 }
 
 int	hasnt_forbidden_char(char *map_content)
@@ -104,7 +102,7 @@ static int	count_words(const char *str, char c)
 	return (num_words);
 }
 
-int	count_p_e_c(char **map, int rows, int cols, char target)
+int	count_p_e_c(char **map, t_lib1 *map_data, char target)
 {
 	int	count;
 	int	x;
@@ -113,11 +111,21 @@ int	count_p_e_c(char **map, int rows, int cols, char target)
 	count = 0;
 	x = 0;
 	y = 0;
-	while (x < rows)
+	while (x < map_data->how_many_lines)
 	{
 		y = 0;
-		while (y < cols)
+		while (y < map_data->how_many_colums)
 		{
+			if (map[x][y] == 'P')
+			{
+				map_data->player_coor_x = x;
+				map_data->player_coor_y = y;
+			}
+			if (map[x][y] == 'P' || map[x][y] == 'E' || map[x][y] == 'C')
+			{
+				map_data->count++;
+				ft_printf("contador %i", map_data->count);
+			}
 			if (map[x][y] == target)
 				count++;
 			y++;

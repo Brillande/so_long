@@ -6,24 +6,22 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:23:01 by emedina-          #+#    #+#             */
-/*   Updated: 2023/08/30 15:16:11 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/07 21:32:06 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_lib1	*read_the_map(t_lib1 map_update)
+t_lib1	*read_the_map(t_lib1 *map_data)
 {
-	t_lib1	map_update1;
-
-	map_update1.map_length = how_length_is_the_map(map_update.fullpath);
-	if (map_update.map_length == 0)
+	map_data->map_length = how_length_is_the_map(map_data->fullpath);
+	if (map_data->map_length == 0)
 	{
 		exit(EXIT_FAILURE);
 	}
-	map_update1.map_content = read_map(map_update.fullpath,
-			map_update1.map_length);
-	test_to_knows_if_is_playable(map_update1);
+	map_data->map_content = read_map(map_data->fullpath,
+			map_data->map_length);
+	test_to_knows_if_is_playable(map_data);
 }
 
 char	*read_map(char *full_path, int i)
