@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tests_to_knows_if_is_playable.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:29:35 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/08 19:29:33 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/09 00:56:51 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ t_lib1	*isnt_borded_of_walls(char **map_array, int lines, int colms)
 		}
 		x++;
 	}
-	return (1);
 }
 
 int	hasnt_forbidden_char(char *map_content)
@@ -120,11 +119,6 @@ int	count_p_e_c(char **map, t_lib1 *map_data, char target)
 			{
 				map_data->player_coor_x = x;
 				map_data->player_coor_y = y;
-			}
-			if (map[x][y] == 'P' || map[x][y] == 'E' || map[x][y] == 'C')
-			{
-				map_data->count++;
-				ft_printf("contador %i", map_data->count);
 			}
 			if (map[x][y] == target)
 				count++;
