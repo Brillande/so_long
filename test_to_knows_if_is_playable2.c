@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_to_knows_if_is_playable2.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:47:47 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/08 19:21:18 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/09 01:59:49 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@ t_lib1	*test_to_knows_if_is_playable2(t_lib1 *map_data)
 	ft_printf("\nMAP_ARRAY\n%s\n", map_data->cpy_of_map_array[0]);
 	ft_printf("%s\n", map_data->cpy_of_map_array[1]);
 	ft_printf("%s\n", map_data->cpy_of_map_array[2]);
-	if (flood_fill(map_data, map_data->player_coor_x,
-			map_data->player_coor_y) != 0)
-		perror("no es jugable");
-	ft_printf("contador", map_data->count);
+	flood_fill(map_data, map_data->player_coor_x,
+			map_data->player_coor_y);
 	ft_printf("COPY_MAP_ARRAY\n%s\n", map_data->cpy_of_map_array[0]);
 	ft_printf("%s\n", map_data->cpy_of_map_array[1]);
 	ft_printf("%s\n", map_data->cpy_of_map_array[2]);
+	find_out_if_is_playable(map_data);
 }
 
 int	so_many_p_e_c_has(t_lib1 *map_data, char **map, int rows, int cols)
@@ -52,12 +51,8 @@ int	so_many_p_e_c_has(t_lib1 *map_data, char **map, int rows, int cols)
 	}
 }
 
-int	flood_fill(t_lib1 *map_data, int x, int y)
+void	flood_fill(t_lib1 *map_data, int x, int y)
 {
-	if (map_data->cpy_of_map_array[x][y] == 'P'
-		|| map_data->cpy_of_map_array[x][y] == 'E'
-		|| map_data->cpy_of_map_array[x][y] == 'C')
-		map_data->count--;
 	if (map_data->cpy_of_map_array[x][y] != '1')
 	{
 		map_data->cpy_of_map_array[x][y] = '1';
@@ -66,7 +61,29 @@ int	flood_fill(t_lib1 *map_data, int x, int y)
 		flood_fill(map_data, x, y + 1);
 		flood_fill(map_data, x, y - 1);
 	}
-	return (map_data->count);
+}
+
+void find_out_if_is_playable(t_lib1 *map_data)
+{
+	int playable;
+	playable = 1;
+	while(map_data->x < map_data->how_many_lines && playable)
+	{
+		while(map_data->y < map_data->how_many_colums && playable)
+		{
+			if(map_data->cpy_of_map_array[map_data->x][map_data->y] != '1' && map_data->cpy_of_map_array[map_data->x][map_data->y] != '0')
+			{
+				playable = 0;
+			}
+			map_data->y++;
+		}
+		map_data->y = 0;
+		map_data->x++;
+	}
+	if(playable)
+		ft_printf("es jugable");
+	else
+		perror("error\nno es jugable");
 }
 
 /* 

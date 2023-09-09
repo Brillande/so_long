@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:23:09 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/08 19:08:48 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/09 01:12:38 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ static int	count_words(const char *str, char c);
 int			so_many_p_e_c_has(t_lib1 *map_data, char **map, int rows, int cols);
 t_lib1		*test_to_knows_if_is_playable2(t_lib1 *map_data);
 int			count_p_e_c(char **map, t_lib1 *map_data, char target);
-int			flood_fill(t_lib1 *map_data, int x, int y);
+void		flood_fill(t_lib1 *map_data, int x, int y);
+void find_out_if_is_playable(t_lib1 *map_data);
 #endif
