@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:47:02 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/08 13:43:58 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/11 01:00:18 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,8 @@ int	main(int argc, char **argv)
 	{
 		ft_bzero(&map_data, sizeof(map_data));
 		join_the_fullpath(&map_data, argv[1]);
+		read_the_map(&map_data);
+		test_to_knows_if_is_playable(&map_data);
+		test_to_knows_if_is_playable2(&map_data);
 	}
 }

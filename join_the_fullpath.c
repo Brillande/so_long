@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   join_the_fullpath.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:22:49 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/07 21:22:46 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/11 00:58:19 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,15 @@ t_lib1	*join_the_fullpath(t_lib1 *map_data, char *map_name)
 			perror("Error\n al asignar memoria\n");
 			exit(EXIT_FAILURE);
 		}
-		read_the_map(map_data);
 	}
+	return(map_data);
 }
 
 char	*check_name(char *map_name)
 {
-	int	leng;
 	int	i;
 
-	leng = 0;
 	i = 0;
-	leng = ft_strlen(map_name);
 	ft_printf("%s", "El nombre del archivo es: ");
 	ft_printf("%s\n", &map_name[i]);
 	return (map_name);

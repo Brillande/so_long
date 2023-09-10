@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_the_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:23:01 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/07 21:32:06 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/11 01:01:41 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_lib1	*read_the_map(t_lib1 *map_data)
 	}
 	map_data->map_content = read_map(map_data->fullpath,
 			map_data->map_length);
-	test_to_knows_if_is_playable(map_data);
+	return(map_data);
 }
 
 char	*read_map(char *full_path, int i)
