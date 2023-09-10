@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:47:47 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/09 01:59:49 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/11 01:01:23 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 t_lib1	*test_to_knows_if_is_playable2(t_lib1 *map_data)
 {
-	so_many_p_e_c_has(map_data, map_data->map_array, map_data->how_many_lines,
-			map_data->how_many_colums);
+	so_many_p_e_c_has(map_data, map_data->map_array);
 	if (!isnt_borded_of_walls(map_data->map_array, map_data->how_many_lines,
 			map_data->how_many_colums))
 		exit(EXIT_FAILURE);
@@ -28,9 +27,10 @@ t_lib1	*test_to_knows_if_is_playable2(t_lib1 *map_data)
 	ft_printf("%s\n", map_data->cpy_of_map_array[1]);
 	ft_printf("%s\n", map_data->cpy_of_map_array[2]);
 	find_out_if_is_playable(map_data);
+	exit(EXIT_SUCCESS);
 }
 
-int	so_many_p_e_c_has(t_lib1 *map_data, char **map, int rows, int cols)
+int	so_many_p_e_c_has(t_lib1 *map_data, char **map)
 {
 	int	p;
 	int	e;

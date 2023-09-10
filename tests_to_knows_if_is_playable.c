@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:29:35 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/09 00:56:51 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/11 01:13:39 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ t_lib1	*test_to_knows_if_is_playable(t_lib1 *map_data)
 			/ map_data->how_many_lines) - 1;
 	ft_printf("\nlineas del array: %d\n", map_data->how_many_lines);
 	ft_printf("columnas del array: %d \n", map_data->how_many_colums);
-	test_to_knows_if_is_playable2(map_data);
+	return(map_data);
 }
 
-t_lib1	*isnt_borded_of_walls(char **map_array, int lines, int colms)
+int	isnt_borded_of_walls(char **map_array, int lines, int colms)
 {
 	int	x;
 	int	y;
@@ -43,17 +43,18 @@ t_lib1	*isnt_borded_of_walls(char **map_array, int lines, int colms)
 			if (map_array[0][y] != '1' || map_array[lines - 1][y] != '1')
 			{
 				perror("\nerror\n no esta rodeado de muros1");
-				return (0);
+				return(0);
 			}
 			if (map_array[x][0] != '1' || map_array[x][colms] != '1')
 			{
 				perror("\nerror\n no esta rodeado de muros2");
-				return (0);
+				return(0);
 			}
 			y++;
 		}
 		x++;
 	}
+	return(1);
 }
 
 int	hasnt_forbidden_char(char *map_content)
@@ -80,7 +81,7 @@ int	hasnt_forbidden_char(char *map_content)
 	return (0);
 }
 
-static int	count_words(const char *str, char c)
+int	count_words(const char *str, char c)
 {
 	int	num_words;
 	int	i;
