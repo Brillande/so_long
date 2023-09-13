@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:47:02 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/11 01:00:18 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:27:04 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@
 	int		way;
 	int		leng;
 	int		i;
+	t_lib1	map_data;
+	void	mlx;
+	void	*mlx;
+	t_lib1	map_data;
+	void	mlx;
 
 	leng = ft_strlen(map);
 	buff = malloc(leng * sizeof(char));
@@ -73,7 +78,6 @@
 	way = '0';
 	
 } */
-
 int	main(int argc, char **argv)
 {
 	t_lib1	map_data;
@@ -85,5 +89,6 @@ int	main(int argc, char **argv)
 		read_the_map(&map_data);
 		test_to_knows_if_is_playable(&map_data);
 		test_to_knows_if_is_playable2(&map_data);
+		init_game(&map_data);
 	}
 }

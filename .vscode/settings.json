@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"so_long.h": "c",
-		"locale": "c"
+		"locale": "c",
+		"mlx_int.h": "c"
 	}
 }

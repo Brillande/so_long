@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   tests_to_knows_if_is_playable.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:29:35 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/11 01:13:39 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:21:50 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/ft_printf.h"
 #include "so_long.h"
-//tienes que conseguir que sume el numero correcto de p e c en la funcion de pec
+
 t_lib1	*test_to_knows_if_is_playable(t_lib1 *map_data)
 {
 	if (!hasnt_forbidden_char(map_data->map_content))
@@ -26,7 +26,7 @@ t_lib1	*test_to_knows_if_is_playable(t_lib1 *map_data)
 			/ map_data->how_many_lines) - 1;
 	ft_printf("\nlineas del array: %d\n", map_data->how_many_lines);
 	ft_printf("columnas del array: %d \n", map_data->how_many_colums);
-	return(map_data);
+	return (map_data);
 }
 
 int	isnt_borded_of_walls(char **map_array, int lines, int colms)
@@ -43,18 +43,18 @@ int	isnt_borded_of_walls(char **map_array, int lines, int colms)
 			if (map_array[0][y] != '1' || map_array[lines - 1][y] != '1')
 			{
 				perror("\nerror\n no esta rodeado de muros1");
-				return(0);
+				return (0);
 			}
 			if (map_array[x][0] != '1' || map_array[x][colms] != '1')
 			{
 				perror("\nerror\n no esta rodeado de muros2");
-				return(0);
+				return (0);
 			}
 			y++;
 		}
 		x++;
 	}
-	return(1);
+	return (1);
 }
 
 int	hasnt_forbidden_char(char *map_content)

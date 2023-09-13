@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   join_the_fullpath.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:22:49 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/11 00:58:19 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:54:05 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_lib1	*join_the_fullpath(t_lib1 *map_data, char *map_name)
 			exit(EXIT_FAILURE);
 		}
 	}
-	return(map_data);
+	return (map_data);
 }
 
 char	*check_name(char *map_name)
