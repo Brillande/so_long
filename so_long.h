@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:23:09 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/13 14:56:48 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/15 01:00:04 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "./libft/libft.h"
 # include "./mlx/mlx.h"
 # include "ft_printf/ft_printf.h"
-# include <OpenGL/gl3.h>
 # include <fcntl.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -52,6 +51,11 @@ typedef struct s_lib1
 	void	*win;
 	int		width;
 	int		heigth;
+	void	*player;
+	void	*ground;
+	void	*coin;
+	void	*exit;
+	void	*wall;
 }			t_lib1;
 
 int			main(int argc, char **argv);
@@ -72,6 +76,6 @@ void		flood_fill(t_lib1 *map_data, int x, int y);
 void		find_out_if_is_playable(t_lib1 *map_data);
 t_lib1		*init_game(t_lib1 *map_data);
 void		open_window(t_lib1 *map_data);
-void		my_mlx_pixel_put(t_lib1 *map_data, int x, int y, int color);
+void	print_img(t_lib1 *map_data);
 
 #endif
