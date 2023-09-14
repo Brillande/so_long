@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:20:40 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/15 00:59:35 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/15 01:15:52 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	open_window(t_lib1 *map_data)
 	mlx_destroy_window(map_data->mlx, map_data->win);
 	free(map_data->mlx);
 }
+//poner la ruta de tus imagenes y seguir con el so_long de goiko de ejemplo.
 void	print_img(t_lib1 *map_data)
 {
 	map_data->player = mlx_xpm_file_to_image(map_data->mlx, "i/risitas.xpm", \
