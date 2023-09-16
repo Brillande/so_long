@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:47:47 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/12 15:54:52 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:54:01 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ int	so_many_p_e_c_has(t_lib1 *map_data, char **map)
 {
 	int	p;
 	int	e;
-	int	c;
 
-	c = count_p_e_c(map, map_data, 'C');
+	map_data->total_coins = count_p_e_c(map, map_data, 'C');
 	p = count_p_e_c(map, map_data, 'P');
 	e = count_p_e_c(map, map_data, 'E');
-	if (c == 0 || p == 0 || e == 0 || p > 1 || e > 1)
+	if (map_data->total_coins == 0 || p == 0 || e == 0 || p > 1 || e > 1)
 	{
 		perror("error\nnumero de monedas, salidas o jugadores incorrecto");
 		return (1);

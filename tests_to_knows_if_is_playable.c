@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:29:35 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/12 12:21:50 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:52:09 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_lib1	*test_to_knows_if_is_playable(t_lib1 *map_data)
 		exit(EXIT_FAILURE);
 	}
 	map_data->map_array = ft_split(map_data->map_content, '\n');
-	map_data->cpy_of_map_array = map_data->map_array;
+	map_data->cpy_of_map_array = ft_split(map_data->map_content, '\n');
 	map_data->how_many_lines = count_words(map_data->map_content, '\n');
 	map_data->how_many_colums = (map_data->map_length
 			/ map_data->how_many_lines) - 1;

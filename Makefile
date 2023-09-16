@@ -55,7 +55,6 @@ SRCS        :=      ft_printf/utils1.c \
                           libft/ft_putnbr_fd.c \
                           libft/ft_strmapi.c \
                           libft/ft_isdigit.c \
-                          libft/ft_strlen.c \
                           libft/ft_strnstr.c \
                           libft/ft_putendl_fd.c \
                           libft/ft_memset.c \
