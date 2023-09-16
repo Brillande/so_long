@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emedina- <emedina-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:23:09 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/15 01:00:04 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:52:58 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-/* typedef struct s_point
-{
-	int		x;
-	int		y;
-}			t_point;
- */
 typedef struct s_lib1
 {
 	char	**map_array;
@@ -56,6 +50,9 @@ typedef struct s_lib1
 	void	*coin;
 	void	*exit;
 	void	*wall;
+	int		end;
+	int		coins_collected;
+	int		total_coins;
 }			t_lib1;
 
 int			main(int argc, char **argv);
@@ -76,6 +73,14 @@ void		flood_fill(t_lib1 *map_data, int x, int y);
 void		find_out_if_is_playable(t_lib1 *map_data);
 t_lib1		*init_game(t_lib1 *map_data);
 void		open_window(t_lib1 *map_data);
-void	print_img(t_lib1 *map_data);
-
+void		select_img(t_lib1 *map_data);
+int			print_img(t_lib1 *map_data);
+int			move(t_lib1 *map_data, int x, int y);
+int			key_hook(int keycode, t_lib1 *map_data);
+int			exit_game(t_lib1 *map_data);
+void		print_img2(t_lib1 *map_data);
+int			st_map(char x, int i);
+int			st_temp(char c, int i);
+void		print_img3(t_lib1 *map_data);
+void		print_img1(t_lib1 *map_data);
 #endif
