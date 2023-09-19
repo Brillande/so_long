@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:58:09 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/19 15:48:09 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:55:28 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ int	move(t_lib1 *map_data, int x, int y)
 	if (map_data->map_array[x][y] == 'E'
 		&& map_data->coins_collected == map_data->total_coins)
 	{
+		map_data->count++;
+		ft_printf("\nMovimientos: %i\n", map_data->count);
 		exit_game(map_data);
 	}
 	if (map_data->map_array[x][y] == 'E'
