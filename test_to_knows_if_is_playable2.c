@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:47:47 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/19 19:02:20 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:06:25 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_lib1	*test_to_knows_if_is_playable2(t_lib1 *map_data)
 {
 	so_many_p_e_c_has(map_data, map_data->map_array);
 	isnt_borded_of_walls(map_data->map_array, map_data->how_many_lines,
-			map_data->how_many_colums);
+		map_data->how_many_colums);
 	find_out_if_is_playable(map_data);
 	return (map_data);
 }
