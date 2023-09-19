@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:23:09 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/19 03:27:09 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:47:33 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ typedef struct s_lib1
 	int		end;
 	int		coins_collected;
 	int		total_coins;
+	int		cpy_coors_x;
+	int		cpy_coors_y;
 }			t_lib1;
 
 int			main(int argc, char **argv);
@@ -83,4 +85,6 @@ int			st_map(char x, int i);
 int			st_temp(char c, int i);
 void		print_img3(t_lib1 *map_data);
 void		print_img1(t_lib1 *map_data);
+void		flood_fill1(t_lib1 *map_data, int x, int y);
+void		find_out_if_is_playable2(t_lib1 *map_data, int playable);
 #endif
