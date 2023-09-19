@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:29:35 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/16 17:52:09 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:07:32 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@ t_lib1	*test_to_knows_if_is_playable(t_lib1 *map_data)
 	map_data->how_many_lines = count_words(map_data->map_content, '\n');
 	map_data->how_many_colums = (map_data->map_length
 			/ map_data->how_many_lines) - 1;
-	ft_printf("\nlineas del array: %d\n", map_data->how_many_lines);
-	ft_printf("columnas del array: %d \n", map_data->how_many_colums);
 	return (map_data);
 }
 
-int	isnt_borded_of_walls(char **map_array, int lines, int colms)
+void	isnt_borded_of_walls(char **map_array, int lines, int colms)
 {
 	int	x;
 	int	y;
@@ -40,21 +38,21 @@ int	isnt_borded_of_walls(char **map_array, int lines, int colms)
 		y = 0;
 		while (y < colms)
 		{
-			if (map_array[0][y] != '1' || map_array[lines - 1][y] != '1')
+			if (map_array[0][y] != '1' || map_array[lines - 1][y] != '1'
+				|| map_array[0][y + 1] != '1')
 			{
-				perror("\nerror\n no esta rodeado de muros1");
-				return (0);
+				perror("\nerror\n no esta rodeado de muros o no es rectangular");
+				exit(EXIT_FAILURE);
 			}
 			if (map_array[x][0] != '1' || map_array[x][colms] != '1')
 			{
-				perror("\nerror\n no esta rodeado de muros2");
-				return (0);
+				perror("\nerror\n no esta rodeado de muros o no es rectangular");
+				exit(EXIT_FAILURE);
 			}
 			y++;
 		}
 		x++;
 	}
-	return (1);
 }
 
 int	hasnt_forbidden_char(char *map_content)
@@ -75,7 +73,6 @@ int	hasnt_forbidden_char(char *map_content)
 			}
 			i++;
 		}
-		ft_printf("\nno hay ningun caracter prohibido");
 		return (1);
 	}
 	return (0);

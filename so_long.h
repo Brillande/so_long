@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:23:09 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/16 17:52:58 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/19 03:27:09 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_lib1
 }			t_lib1;
 
 int			main(int argc, char **argv);
-int			isnt_borded_of_walls(char **map_array, int lines, int colms);
+void		isnt_borded_of_walls(char **map_array, int lines, int colms);
 int			hasnt_forbidden_char(char *map_content);
 char		*check_name(char *map_name);
 char		*check_extension(char *map_extension);
@@ -66,7 +66,7 @@ char		*read_map(char *full_path, int i);
 int			how_length_is_the_map(char *full_path);
 t_lib1		*test_to_knows_if_is_playable(t_lib1 *map_data);
 int			count_words(const char *str, char c);
-int			so_many_p_e_c_has(t_lib1 *map_data, char **map);
+void		so_many_p_e_c_has(t_lib1 *map_data, char **map);
 t_lib1		*test_to_knows_if_is_playable2(t_lib1 *map_data);
 int			count_p_e_c(char **map, t_lib1 *map_data, char target);
 void		flood_fill(t_lib1 *map_data, int x, int y);
