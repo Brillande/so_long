@@ -64,6 +64,7 @@ SRCS        :=      ft_printf/utils1.c \
                           tests_to_knows_if_is_playable.c \
                           main.c \
 						  init_game2.c \
+						  test_to_knows_if_is_playable3.c \
                           
 OBJS        := $(SRCS:.c=.o)
 
