@@ -63,6 +63,7 @@ SRCS        :=      ft_printf/utils1.c \
                           read_the_map.c \
                           tests_to_knows_if_is_playable.c \
                           main.c \
+						  init_game2.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

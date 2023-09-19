@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:22:49 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/15 21:17:19 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:11:10 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,6 @@ t_lib1	*join_the_fullpath(t_lib1 *map_data, char *map_name)
 	return (map_data);
 }
 
-char	*check_name(char *map_name)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("%s", "El nombre del archivo es: ");
-	ft_printf("%s\n", &map_name[i]);
-	return (map_name);
-}
-
 char	*check_extension(char *map_extension)
 {
 	int	leng;
@@ -51,13 +41,12 @@ char	*check_extension(char *map_extension)
 	if (map_extension[leng - 1] == 'r' && map_extension[leng - 2] == 'e'
 		&& map_extension[leng - 3] == 'b' && map_extension[leng - 4] == '.')
 	{
-		write(1, "La extension es .ber\n", 21);
-		check_name(map_extension);
 		return (map_extension);
 	}
 	else
 	{
 		write(1, "Error\nLa extension no es .ber\n", 30);
+		exit(EXIT_FAILURE);
 		return (NULL);
 	}
 }
