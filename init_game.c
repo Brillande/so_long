@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:20:40 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/19 15:09:27 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/27 22:16:05 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	open_window(t_lib1 *map_data)
 	map_data->how_many_colums += 1;
 	map_data->mlx = mlx_init();
 	map_data->win = mlx_new_window(map_data->mlx, map_data->how_many_colums
-			* 64, map_data->how_many_lines * 64, "so_long_emedina-");
+			* 64, map_data->how_many_lines * 64, "so_long emedina-");
 	map_data->img = mlx_new_image(map_data->mlx, 1 * 64, 1 * 64);
 	select_img(map_data);
 	mlx_loop_hook(map_data->mlx, print_img, map_data);
