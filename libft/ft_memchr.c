@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/19 16:47:02 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/26 14:39:03 by emedina-         ###   ########.fr       */
+/*   Created: 2023/04/28 09:32:57 by emedina-          #+#    #+#             */
+/*   Updated: 2023/09/23 14:39:55 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_lib1	map_data;
+	size_t	i;
 
-	if (argc == 1)
+	i = 0;
+	while (i < n)
 	{
-		perror("error\nno has seleccionado mapa");
-		exit(EXIT_FAILURE);
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+		{
+			return ((char *)&s[i]);
+		}
+		i++;
 	}
-	if (argc == 2)
-	{
-		ft_bzero(&map_data, sizeof(map_data));
-		join_the_fullpath(&map_data, argv[1]);
-		read_the_map(&map_data);
-		test_to_knows_if_is_playable(&map_data);
-		test_to_knows_if_is_playable2(&map_data);
-		init_game(&map_data);
-	}
+	return (NULL);
 }

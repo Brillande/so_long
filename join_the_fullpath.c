@@ -6,7 +6,7 @@
 /*   By: emedina- <emedina-@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:22:49 by emedina-          #+#    #+#             */
-/*   Updated: 2023/09/19 12:11:10 by emedina-         ###   ########.fr       */
+/*   Updated: 2023/09/27 22:17:44 by emedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*check_extension(char *map_extension)
 	}
 	else
 	{
-		write(1, "Error\nLa extension no es .ber\n", 30);
+		perror("Error\nLa extension no es .ber\n");
 		exit(EXIT_FAILURE);
 		return (NULL);
 	}

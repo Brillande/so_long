@@ -6,13 +6,15 @@ OBJECTS = $(SOURCES:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar crs
-all: $(NAME)
+all: libft $(NAME)
 
+libft :
+	@ $(MAKE) -C libft
 $(NAME): $(OBJECTS)
 	$(AR) $(NAME) $(OBJECTS)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	$(CC) -c $(CFLAGS) -Llibft -llibft $?
 
 clean:
 	rm -f $(OBJECTS)
@@ -22,4 +24,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all bonus clean fclean re libft
